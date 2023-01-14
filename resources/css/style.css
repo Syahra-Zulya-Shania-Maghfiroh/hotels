@@ -1,0 +1,42 @@
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.navbar ul {
+    list-style: none;
+    cursor: pointer;
+    /* float: right; */
+    /* margin-right: 40px; */
+    /* margin-right: 46px; */
+}
+.navbar ul li {
+    /* margin-top: 1rem; */
+    list-style: none;
+    /* display: inline-block;
+    line-heigth: 80px; */
+    /* margin: 8px 10px; */
+    color: #000000;
+    /* font-family: 'Raleway', sans serif; */
+    font-size: 12px;
+    /* padding: 15px 15px; */
+}
+.navbar .container .collapse ul li a {
+    /* text-decoration: none; */
+    color: #000000;
+}
+.navbar ul li:hover {
+    background-color: #dc4242;
+    color: #FFFF00;
+    border-radius: 80px;
+    transition: all .3s ease;
+}
+/*  */
