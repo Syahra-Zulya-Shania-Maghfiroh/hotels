@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    {{ $data }}
     <div class="wrapper" style="background-color: #ffffff">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="color: #000000">
             <div class="container">
@@ -23,17 +22,11 @@
                 </button>
                 <div class="collapse navbar-collapse text-black" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item active mr-2">
-                            <a class="nav-link" aria-current="page" href="#">HOME</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">OUR ROOM</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">ABOUT US</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">CONTACT</a>
+                            <a class="nav-link" href="#">DATA</a>
                         </li>
                     </ul>
                 </div>
@@ -46,45 +39,32 @@
                 <button class="btn btn-warning btn-fill btn-large">Book Now</button>
             </div>
         </section>
-        <div class="welcome" style="text-align: center; padding: 50px 0 50px 0">
-            <h6 style="color: #ffd700">WELCOME TO WIKUSAMA HOTEL</h6>
-            <h2 style="margin-bottom: 2em">You'll Never Want To Leave</h2>
-            <div class="row">
-                <div class="col-lg-3">
-                    <img src="/images/pool.png" alt="">
-                    <p style="margin-top: 2rem">Swimming Pool</p>
+        <div class="row">
+            <form action="{{ route('buat') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    {{ Form::label('type_name', 'Type Name') }}
+                    {{ Form::text('type_name', '', ['class' => 'form-control']) }}
                 </div>
-                <div class="col-lg-3">
-                    <img src="/images/customer.png" alt="">
-                    <p style="margin-top: 2rem">Friendly Service</p>
+                <div class="form-group">
+                    {{ Form::label('price', 'Price') }}
+                    {{ Form::number('price', '', ['class' => 'form-control']) }}
                 </div>
-                <div class="col-lg-3">
-                    <img src="/images/food.png" alt="">
-                    <p style="margin-top: 2rem">Get Breakfast</p>
+                <div class="form-group">
+                    {{ Form::label('desc', 'Description') }}
+                    {{ Form::text('desc', '', ['class' => 'form-control']) }}
                 </div>
-                <div class="col-lg-3">
-                    <img src="/images/bed.png" alt="">
-                    <p style="margin-top: 2rem">Cozy Rooms</p>
+                <div class="form-group">
+                    {{ Form::label('photo', 'Upload Photo Type Room') }}
+                    {{ Form::file('photo', '', ['class' => 'form-control']) }}
                 </div>
-            </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
-        <div class="type">
-            <div class="container m-auto d-flex flex-wrap align-items-stretch justify-content-around justify-content-sm-around">
-                @foreach ($data as $data)
-                    <div class="card" style="width: 350px;">
-                        <img src="/hotels/{{ $data->photo }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title center">{{ $data->type_name }}</h5>
-                            <p class="card-text">Rp. {{ $data->price }}</p>
-                            <p>{{ $data->desc }}</p>
-                            <a href="#" class="btn btn-primary">Booking Now</a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
+        <h1>syahra</h1>
     </div>
 
+    <script src="{{ asset('../css/style.css') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 </body>

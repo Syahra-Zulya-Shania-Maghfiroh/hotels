@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use function GuzzleHttp\default_user_agent;
+
 return new class extends Migration
 {
     /**
@@ -20,7 +22,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['0', '1', '2']);
+            $table->tinyInteger('role')->default(0);
             // 0 => user, 1 => admin, 2 => receptionist
             $table->rememberToken();
             $table->timestamps();

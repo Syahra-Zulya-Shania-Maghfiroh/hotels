@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TypeController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +18,16 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [TypeController::class, 'index']);
+// Route::get('/admin', function () {
+//     return view('homeAdmin');
+// });
 Route::get('/login', function () {
     return view('login');
 });
+Route::post('/admin', [TypeController::class, 'store'])->name('buat');
+
+Route::get('/admin', [TypeController::class, 'index'])->name('index');
+
+// Route::get('/admin', 'TypeController@index')->name('index');
+// Route::post('/admin', 'TypeController@store')->name('buat');
